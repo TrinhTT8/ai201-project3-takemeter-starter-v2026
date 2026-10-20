@@ -51,63 +51,33 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1. Overall accuracy is at least 0.70 on the held-out set, on all three seeds.
 
-<!-- Your criterion. It must name a number. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** A guesser gets about 33% with three labels. Most posts either name a dish or a restaurant, so 0.70 is useful without being out of reach.
 
 ---
 
-## 2.
+## 2. Every label has an F1 of at least 0.65, except `bought_prepared`, which needs at least 0.55.
 
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** `bought_prepared` is my smallest label and sits on the hardest boundary (store-bought ingredients count as `home_cooked`), so its score will be the jumpiest.
 
 ---
 
-## 3.
+## 3. Fewer than 20% of true `bought_prepared` posts are predicted as `home_cooked`.
 
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** This is the confusion my decision rule exists to prevent. If the model mixes up these two, the classifier misses its main point.
 
 ---
 
-## 4.
+## 4. I agree with the staff labels on at least 24 of the 30 posts (80%).
 
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** Food posts are mostly clear-cut, but frozen meals and "my wife cooked" posts take judgment, so I allow about one miss in five.
 
 ---
 
-## 5.
+## 5. Predictions with confidence of 0.80 or higher are correct at least 85% of the time.
 
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** A post like "Subway night" should be an easy, confident call. If confident predictions aren't more accurate than overall accuracy, the confidence score means nothing.
 
 ---
 
