@@ -68,27 +68,39 @@ My classifier sorts posts into: home_cooked, bought_prepared and chatter
 
 > blackeyed peas,fried squash,corn on the cob,all made with love by my wonderful wife without whom i would be a skinny sickly looking runt:brows:
 
-### `label_two`
+### `brought_prepared`
 
-**Definition:**
+**Definition:** This covers posts that mentioned a business made the meal such as restaurants, takeout, delivery and fast food. 
 
-**Example 1:**
+**Example 1:** 
 
->
+>It's a subway night here. We did grocery shopping tonight. Did regular shopping plus got all the fixings for the Thanksgiving day dinner. So no cooking here tonight.
 
 **Example 2:**
 
->
+>We're celebrating Mother's Day tonight so we don't hit crowds tomorrow. My parents, my bf and I are hitting a Brazilian steakhouse. Haven't been to this one though. I'm trying to starve myself so I have room lol.
+
+### `chatter`
+
+**Definition:** The post doesn't report a meal. It's a reaction, a question, a compliment or off-topic.
+
+**Example 1:** 
+
+>Why do I open threads like this while starving to death at lunch time?:unsure:
+
+**Example 2:**
+
+>bachelor experimental cooking? looks nice nonetheless. what did you have as a side dish?
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** home_cooked vs bought_prepared
 
 **The decision rule I used every time:**
 
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
-
+If the post mentions that the user eats/uses specific brand of ingredients, frozen food or prepackaged items, it's 'home_cooked' even when user bought them. Only meals that were prepared by an establishment can be considered 'bought_prepared'. 
 ---
 
 ## The Dataset
