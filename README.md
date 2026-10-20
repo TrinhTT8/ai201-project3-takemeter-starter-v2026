@@ -68,7 +68,7 @@ My classifier sorts posts into: home_cooked, bought_prepared and chatter
 
 > blackeyed peas,fried squash,corn on the cob,all made with love by my wonderful wife without whom i would be a skinny sickly looking runt:brows:
 
-### `brought_prepared`
+### `bought_prepared`
 
 **Definition:** This covers posts that mentioned a business made the meal such as restaurants, takeout, delivery and fast food. 
 
@@ -108,19 +108,19 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** The posts came from 'forumsforums.com' and the thread is 'What's for Dinner Tonight?'. I specifically pulled the posts from page 157-164. Because `home_cooked` came out above 70%, I also added only the `bought_prepared` and `chatter` posts from pages 165-167 to balance it.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** Pre-labelled with AI (Claude), using my definitions and my decision rule. Every row's `note` column says so. I then read every post and corrected the labels I disagreed with.
+<!-- TODO: after checking, change each note to "pre-labelled, checked" and say how many labels you changed. -->
 
 **Counts per label:**
 
-| Label     | Count | Share |
-| --------- | ----- | ----- |
-|           |       |       |
-|           |       |       |
-|           |       |       |
-| **Total** |       | 100%  |
+| Label             | Count | Share |
+| ----------------- | ----- | ----- |
+| `home_cooked`     | 159   | 66.8% |
+| `chatter`         | 51    | 21.4% |
+| `bought_prepared` | 28    | 11.8% |
+| **Total**         | 238   | 100%  |
 
 **Three hard cases**
 
@@ -129,27 +129,27 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 **1.**
 
-> _The post:_
+> _The post:_ "Chicken breasts and a salad made of broccoli/cauliflower-chopped walnuts and bleu cheese dressing. The chicken was the Tyson fully cooked fillets, and they tasted great right out of the oven."
 >
-> _Could have been:_
+> _Could have been:_ `home_cooked` or `bought_prepared`
 >
-> _I chose, because:_
+> _I chose, because:_ `home_cooked`. Tyson fillets are a packaged product heated at home, not a meal from a business.
 
 **2.**
 
-> _The post:_
+> _The post:_ "Last night we went to Asian Grill buffet. I had peanut butter chicken, shrimp, fried fish, fried rice, crab rangoon. Tonight sonny boy is going to grill."
 >
-> _Could have been:_
+> _Could have been:_ `bought_prepared` or `home_cooked`
 >
-> _I chose, because:_
+> _I chose, because:_ `bought_prepared`. The meal the post actually reports is the buffet; the grilling hasn't happened yet.
 
 **3.**
 
-> _The post:_
+> _The post:_ "We got quesadillas from a place called Hawk's and I made my romaine and walnut salad."
 >
-> _Could have been:_
+> _Could have been:_ `bought_prepared` or `home_cooked`
 >
-> _I chose, because:_
+> _I chose, because:_ `bought_prepared`. The main dish came from a restaurant; the homemade salad is only a side.
 
 ---
 
@@ -190,7 +190,7 @@ of next unit's variance. -->
 - _What came back:_
 - _What I changed:_
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** All 238 posts in `labels.csv` were pre-labelled by Claude. I read every one and corrected the ones I disagreed with.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
