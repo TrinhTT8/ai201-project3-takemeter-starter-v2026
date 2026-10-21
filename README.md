@@ -110,15 +110,14 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 
 **Where the posts came from:** The posts came from 'forumsforums.com' and the thread is 'What's for Dinner Tonight?'. I specifically pulled the posts from page 157-164. Because `home_cooked` came out above 70%, I also added only the `bought_prepared` and `chatter` posts from pages 165-167 to balance it.
 
-**How I labelled them:** Pre-labelled with AI (Claude), using my definitions and my decision rule. Every row's `note` column says so. I then read every post and corrected the labels I disagreed with.
-<!-- TODO: after checking, change each note to "pre-labelled, checked" and say how many labels you changed. -->
+**How I labelled them:** Pre-labelled with AI (Claude), using my definitions and my decision rule. Every row's `note` column says so. I then read every post and corrected the labels I disagreed with. I changed 6 of the 238 labels, all between `home_cooked` and `chatter`.
 
 **Counts per label:**
 
 | Label             | Count | Share |
 | ----------------- | ----- | ----- |
-| `home_cooked`     | 159   | 66.8% |
-| `chatter`         | 51    | 21.4% |
+| `home_cooked`     | 161   | 67.6% |
+| `chatter`         | 49    | 20.6% |
 | `bought_prepared` | 28    | 11.8% |
 | **Total**         | 238   | 100%  |
 
@@ -190,7 +189,7 @@ of next unit's variance. -->
 - _What came back:_
 - _What I changed:_
 
-**Pre-labelling disclosure:** All 238 posts in `labels.csv` were pre-labelled by Claude. I read every one and corrected the ones I disagreed with.
+**Pre-labelling disclosure:** All 238 posts in `labels.csv` were pre-labelled by Claude. I read every one and corrected the ones I disagreed with (6 changed).
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
