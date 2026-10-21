@@ -156,15 +156,21 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate 2e-5, batch size 16, 128 tokens per post, seed 42.
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** Nothing. I kept the defaults.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Split sizes:** train 166 / val 36 / test 36.
+
+| Label             | Train | Val | Test |
+| ----------------- | ----- | --- | ---- |
+| `home_cooked`     | 112   | 25  | 24   |
+| `chatter`         | 34    | 7   | 8    |
+| `bought_prepared` | 20    | 4   | 4    |
+
+`bought_prepared` has only 4 posts in the test split, so its F1 will move a lot between seeds. `chatter` is right at 8.
 
 ---
 
