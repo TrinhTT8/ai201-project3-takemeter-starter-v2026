@@ -96,11 +96,10 @@ My classifier sorts posts into: home_cooked, bought_prepared and chatter
 
 **Which two labels:** home_cooked vs bought_prepared
 
-**The decision rule I used every time:**
+**The decision rule I used every time:** 
 
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
-If the post mentions that the user eats/uses specific brand of ingredients, frozen food or prepackaged items, it's 'home_cooked' even when user bought them. Only meals that were prepared by an establishment can be considered 'bought_prepared'. 
+If the post mentions that the user eats/uses specific brand of ingredients, frozen food or prepackaged items, it's 'home_cooked' even when user bought them. Only meals that were prepared by an establishment can be considered 'bought_prepared'.
+
 ---
 
 ## The Dataset
@@ -185,17 +184,17 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 
 **Moment 1**
 
-- _What I asked for:_
-- _What came back:_
-- _What I changed:_
+- _What I asked for:_ I asked Claude to collect 238 posts from the forum, and pre-label 218 of them for me. 
+- _What came back:_ It populated the rest of `labels.csv` and specified which posts were labeled by it and whether I have recheck the labels or not. 
+- _What I changed:_ I read through the 150 posts and fixed 6 of the labels that it got wrong. 
 
 **Moment 2**
 
-- _What I asked for:_
-- _What came back:_
-- _What I changed:_
+- _What I asked for:_ I have asked Claude to challenge my criteria and analyze whether they make sense.
+- _What came back:_ Based on the analysis, my last two criteria were weak and overlapped with each other. Claude suggested me ways to enhance them, and it also gave me ideas for a new criteria.
+- _What I changed:_ I made criterion 4 a concrete number: at least 24 of the 30 staff posts (80%), allowing about one miss in five. I replaced criterion 5 with a confidence check: predictions at 0.80 confidence or higher must be right at least 85% of the time.
 
-**Pre-labelling disclosure:** All 238 posts in `labels.csv` were pre-labelled by Claude. I read every one and corrected the ones I disagreed with (6 changed).
+**Pre-labelling disclosure:** 218 posts in `labels.csv` were pre-labelled by Claude. I read every one and corrected the ones I disagreed with (6 changed).
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
