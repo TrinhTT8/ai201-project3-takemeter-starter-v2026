@@ -1,0 +1,214 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 36,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 36,
+    "accuracy": 0.6666666666666666,
+    "f1_macro": 0.4604072398190045,
+    "per_label": {
+      "bought_prepared": {
+        "precision": 0.25,
+        "recall": 0.25,
+        "f1": 0.25,
+        "support": 4
+      },
+      "chatter": {
+        "precision": 0.4,
+        "recall": 0.25,
+        "f1": 0.3076923076923077,
+        "support": 8
+      },
+      "home_cooked": {
+        "precision": 0.7777777777777778,
+        "recall": 0.875,
+        "f1": 0.823529411764706,
+        "support": 24
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "My grand daughter Rebecca is allergic to PORK so we couldn't have and Easter Ham.\nSo I did a top round Corned Beef with taters, celery, and carrots. Side dish of Broccoli. Yeast rolls.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "I hate anything from Walmart. I boycotted them last year and haven't been back since.",
+      "gold": "chatter",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "We decided to make meat pies today along with sugar pie for dessert. Very yummy.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Well it wasn't dinner but this morning I was in the mood for something different. So I was a considering and looked at the oatmeal and thought \"why not\". So I started out with milk and water and stirred in some coco until it smelled right and added a bit of sugar and salt and proceeded to cook as regular oatmeal. Anyway when it was ready it looked and smelled like no-bake cookies less a lot of sugar and it went down and tasted good. Will be preparing it this way again sometime...",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Hospital food, a total taste sensation.",
+      "gold": "bought_prepared",
+      "predicted": "chatter"
+    },
+    {
+      "text": "This is just a sampling.",
+      "gold": "chatter",
+      "predicted": "chatter"
+    },
+    {
+      "text": "NEW ZEALAND RACK OF LAMB",
+      "gold": "home_cooked",
+      "predicted": "bought_prepared"
+    },
+    {
+      "text": "babs- my meower, stole half my lunch/dinner; God forbid an item is put w/in their view while you've got distractions--\ni'll hafta make soup, may get/make my p'rogies-- again~~ cannot fully see that item that she took--",
+      "gold": "home_cooked",
+      "predicted": "chatter"
+    },
+    {
+      "text": "..and I wore an apron whilst preparing.\nYou know it's getting serious when the apron comes out. :yum:",
+      "gold": "chatter",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Went to BK. I'm eating like a KING tonight. :yum: :thumbup: :th_lmao:",
+      "gold": "bought_prepared",
+      "predicted": "bought_prepared"
+    },
+    {
+      "text": "Poached fish in butter, then made a garlicky peanut sauce in the same pan to pour over.\nItty bitty potatoes and green beans too.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Fried chicken, cream corn, green beans, and key lime pie",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "I\u2019ve known folks on a liquid diet but their liquid usually came from the liquor store. :yum:\nI hope they strained out the seeds before they bottled that stuff. :mrgreen:",
+      "gold": "chatter",
+      "predicted": "chatter"
+    },
+    {
+      "text": "Pork Rinds! :yum:\nI ate a late lunch so didn't really feel like having much more.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "that sounds so yummy~~",
+      "gold": "chatter",
+      "predicted": "bought_prepared"
+    },
+    {
+      "text": "4% blueberry yogurt~ i'm a rebel like that, namely when i pair that w/ chips, yep--",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Reverse sear steak.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "hangar steak & fries,-- both my Mom & myself-- well, she got a salad, not fries,tho-- adult beverages; my Mom made me take salad via her plate & took most of my fries & she went into awe over them having pepper & herbs on them; & my new boot took precedence over my splint cast-- so love my Mom-- aw-- oh, & tuna tartare as my appy-- sprouts & wasabi as a garnish/& a flatbread, as well, to dip--",
+      "gold": "bought_prepared",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "El Mezcal.\nThe best authentic Mexican restaurant in Defiance.\nYay! No cooking lol",
+      "gold": "bought_prepared",
+      "predicted": "chatter"
+    },
+    {
+      "text": "Oh it's smooth, dark purple and delicious.\nMore importantly, it's staying down.\nEverything that I've consumed today has... and it wasn't much.",
+      "gold": "chatter",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "It's going to be casserole city for a while.\nThis is ground beef, cream of chicken soup, potatoes, onions and cheese.\nLots of cheese.\nEasy!",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "This was lunch.\nEggs over rocket.\nDelicious and nutritious.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Encrusted fish.\nIt's wonderful.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "You had me girl, right up until the rice pudding. I'm sorry but it is just not one of my favorites. I think it has something to do with the way I was brought up in the UK after WW2.\nDon't fret about it. I hate kale for the same reason. :bolt:",
+      "gold": "chatter",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "We had homemade chicken and noodles (even the noodles were homemade)\nWOW that looks good",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "My nice neighbour lady gave me some ripe as well as green tomatoes, so I made a huge plate of fried green ones and used a little Walden Farms creamy bacon dressing to dip them in.\nThat was it.\nWas going to go out for ice cream after, but no.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "well, i'm gonna hafta say ham-- gotta have syrup/ketchup to get me to dine on ham--",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Baked cheesy parsley chicken, Hawaiian bread stuffing, greenie beans and cranberry sauce.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "I made a nice macaroni carrot leek and pepper salad with fresh cut carrots sliced and chicken legs basting in bbq sauce. It was delicious. I do most of the cooking since I'm home most days. I enjoy cooking.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "adult beverages-- we won!!!!!!!! brekkie, lunch & dinners, too! :w00t2: :flowers:",
+      "gold": "chatter",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Carmel corn, Cool Ranch Doritos and chocolate with Coca-Cola real nutritious!",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Ha..\nI ended up making fish sticks and salad.\n:yum:",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Yup grilled again.",
+      "gold": "home_cooked",
+      "predicted": "bought_prepared"
+    },
+    {
+      "text": "Bachelor special: Can of Ginger Ale (hey can't have COKE all the time).\n2 small bags of cashew nuts.\nKit Kat bar (Reese's peanut butter cup is for desert).\nOh, I almost forgot I still have a piece of Kielbasa",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Dinner in a snap.\nPoached egg over soba noodles.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    },
+    {
+      "text": "Yep, ham here too.\n..and mashed potatoes, ham gravy, more hashbrown casserole, green bean casserole, noodles, deviled eggs, fruit salad, 3 pies and cake.\nWe stayed up late prepping a lot of it and putting together Easter baskets, which are actually giant plastic eggs.",
+      "gold": "home_cooked",
+      "predicted": "home_cooked"
+    }
+  ]
+}

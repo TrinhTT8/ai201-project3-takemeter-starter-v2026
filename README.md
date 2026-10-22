@@ -70,33 +70,33 @@ My classifier sorts posts into: home_cooked, bought_prepared and chatter
 
 ### `bought_prepared`
 
-**Definition:** This covers posts that mentioned a business made the meal such as restaurants, takeout, delivery and fast food. 
+**Definition:** This covers posts that mentioned a business made the meal such as restaurants, takeout, delivery and fast food.
 
-**Example 1:** 
+**Example 1:**
 
->It's a subway night here. We did grocery shopping tonight. Did regular shopping plus got all the fixings for the Thanksgiving day dinner. So no cooking here tonight.
+> It's a subway night here. We did grocery shopping tonight. Did regular shopping plus got all the fixings for the Thanksgiving day dinner. So no cooking here tonight.
 
 **Example 2:**
 
->We're celebrating Mother's Day tonight so we don't hit crowds tomorrow. My parents, my bf and I are hitting a Brazilian steakhouse. Haven't been to this one though. I'm trying to starve myself so I have room lol.
+> We're celebrating Mother's Day tonight so we don't hit crowds tomorrow. My parents, my bf and I are hitting a Brazilian steakhouse. Haven't been to this one though. I'm trying to starve myself so I have room lol.
 
 ### `chatter`
 
 **Definition:** The post doesn't report a meal. It's a reaction, a question, a compliment or off-topic.
 
-**Example 1:** 
+**Example 1:**
 
->Why do I open threads like this while starving to death at lunch time?:unsure:
+> Why do I open threads like this while starving to death at lunch time?:unsure:
 
 **Example 2:**
 
->bachelor experimental cooking? looks nice nonetheless. what did you have as a side dish?
+> bachelor experimental cooking? looks nice nonetheless. what did you have as a side dish?
 
 ### The hardest boundary
 
 **Which two labels:** home_cooked vs bought_prepared
 
-**The decision rule I used every time:** 
+**The decision rule I used every time:**
 
 If the post mentions that the user eats/uses specific brand of ingredients, frozen food or prepackaged items, it's 'home_cooked' even when user bought them. Only meals that were prepared by an establishment can be considered 'bought_prepared'.
 
@@ -184,9 +184,9 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 
 **Moment 1**
 
-- _What I asked for:_ I asked Claude to collect 238 posts from the forum, and pre-label 218 of them for me. 
-- _What came back:_ It populated the rest of `labels.csv` and specified which posts were labeled by it and whether I have recheck the labels or not. 
-- _What I changed:_ I read through the 150 posts and fixed 6 of the labels that it got wrong. 
+- _What I asked for:_ I asked Claude to collect 238 posts from the forum, and pre-label 218 of them for me.
+- _What came back:_ It populated the rest of `labels.csv` and specified which posts were labeled by it and whether I have recheck the labels or not.
+- _What I changed:_ I read through the 150 posts and fixed 6 of the labels that it got wrong.
 
 **Moment 2**
 
@@ -208,19 +208,24 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
 
-| Measure          | Baseline | Trained | Difference |
-| ---------------- | -------- | ------- | ---------- |
-| Overall accuracy |          |         |            |
-| Macro F1         |          |         |            |
-| F1 — `label_one` |          |         |            |
-| F1 — `label_two` |          |         |            |
+| Measure                | Baseline | Trained | Difference |
+| ---------------------- | -------- | ------- | ---------- |
+| Overall accuracy       | 0.667    | 0.667   | +0.000     |
+| Macro F1               | 0.460    | 0.267   | -0.194     |
+| F1 — `bought_prepared` | 0.250    | 0.000   | -0.250     |
+| F1 — `chatter`         | 0.308    | 0.000   | -0.308     |
+| F1 — `home_cooked`     | 0.824    | 0.800   | -0.024     |
 
-**What I predicted before I looked:**
+**What I predicted before I looked:** I predicted that the trained model will produce similar results to the zero-shot model because the dataset is skewed to home_cook. Therefore, I think the trained model will end up predicting home_cook for the majority of the posts.
 
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
 
-**What the gap actually means:**
+**What the gap actually means:** My baseline model matched with the trained model for the overall accuracy. However, the trained model did worse in the macro f1, and the f1 for each of the labels. This means that my fine-tuning didn't help. 
+
+The trained model predicted home_cooked for all 36 posts, and 24 of 36 are home_cooked, so it scored 0.667 without telling any posts apart. The baseline got the same accuracy while actually catching a few chatter and bought_prepared posts.
+
+My prediction was slightly off but it was correct that the trained model didn't do better. 
 
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
