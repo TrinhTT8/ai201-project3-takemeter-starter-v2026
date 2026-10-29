@@ -406,24 +406,28 @@ Five of my seven disagreements are the same mistake: staff said analysis and I s
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** I added 44 more `bought_prepared` posts from pages 168–200 of the same thread, taking that label from 28 to 72 posts.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Diagnoses 1–3, too few examples. `bought_prepared` had only 20 training posts against 112 for `home_cooked`, and its F1 was 0.00 on all three seeds, while the zero-shot baseline still caught some (0.25), so the label was learnable and the model just hadn't seen enough of it.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 | --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| 1. Overall accuracy | ≥ 0.70 | 0.581 | 0.581 | 0.581 | MISSED |
+| 2. Per-label F1 | `home_cooked`, `chatter` ≥ 0.65; `bought_prepared` ≥ 0.55 | hc 0.74, ch 0.00, bp 0.00 | hc 0.74, ch 0.00, bp 0.00 | hc 0.74, ch 0.00, bp 0.00 | MISSED |
+| 3. `bought_prepared` predicted as `home_cooked` | < 20% | 100% (11/11) | 100% (11/11) | 100% (11/11) | MISSED |
+| 4. Agreement with staff labels | ≥ 24/30 | 23/30 | 23/30 | 23/30 | MISSED |
+| 5. Most-confident third is correct (revised, see `criteria.md`) | ≥ 0.85 | 0.857 | 1.000 | 0.786 | MISSED |
 
 **Did it help, and how do I know:**
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
+
+No. All five criteria are still missed, and the model still predicts `home_cooked` for all 43 test posts on every seed (11 of 11 `bought_prepared` posts went to `home_cooked`). Accuracy dropped from 0.667 to 0.581, but that's not the model getting worse: `home_cooked` is now 25 of 43 test posts, so 0.581 is just the new score for always guessing it.
+
+So too few examples wasn't the whole story. `bought_prepared` now has more training posts than `chatter` had before, and the model still never predicted it once. The data is still lopsided (`home_cooked` is 57%), and with 3 epochs at the default learning rate on about 200 training posts, the model never got past guessing the biggest label. The scores are identical across all three seeds, which shows the model is stuck rather than unstable. Criterion 4 didn't change because it measures my labelling, not the model.
 
 ---
 
@@ -437,19 +441,6 @@ learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
 
 <!-- ═════════════════════════════════════════════════════════════════════
-
-     SUBMISSION CHECKLIST — unit 5
-
-       [ ] criteria.md has five numbered criteria, each naming a NUMBER
-       [ ] Each has a reason underneath tied to your data or taxonomy
-       [ ] labels.csv: at least 150 rows, text/label/note, ONE file not split
-       [ ] No label above 70%
-       [ ] All five unit 5 sections have real content
-       [ ] Label Taxonomy includes the decision rule for your hardest boundary
-       [ ] The Dataset includes three hard cases
-       [ ] results.json and test_split.csv committed (the notebook does this)
-       [ ] At least four new commits
-       [ ] Repository URL submitted — WRITE IT DOWN
 
      SUBMISSION CHECKLIST — unit 6
 
