@@ -296,7 +296,7 @@ My biggest off-diagonal number is 8: all 8 real chatter posts were predicted as 
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** **_ / 30 = _**%
+**Agreement rate:** **23 / 30 = 77**%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -320,25 +320,77 @@ My biggest off-diagonal number is 8: all 8 real chatter posts were predicted as 
 
 **1.**
 
-> _The post:_
+> _The post:_ I tracked sleep against session quality for eleven weeks. Under seven hours the next day's intervals were 6-8 seconds per mile slower, every time bar one. Small sample, one runner, but it's consistent enough that I've stopped scheduling hard days after late shifts.
 >
-> _Staff said / I said:_
+> _Staff said / I said:_ analysis / reaction
 >
-> _My call, and why:_
+> _My call, and why:_ Staff is right. Eleven weeks of tracked sleep and pace numbers carry the conclusion, and rule 3 says personal data is still `analysis`; I read it as a feeling about sleep and missed the facts.
 >
-> _Which pile:_
+> _Which pile:_ a
 
 **2.**
 
-> _The post:_
+> _The post:_ Everyone blames the hill at 18 miles. I split the field into people who ran the first half under 1:45 and over, and the slowdown after 18 was almost identical for both groups. If the hill were the problem the fast starters would fall apart harder.
 >
-> _Staff said / I said:_
+> _Staff said / I said:_ analysis / hot_take
 >
-> _My call, and why:_
+> _My call, and why:_ Staff is right. I judged only the final sentence, but the split at 1:45 and the matching slowdown are the reason for it, so rule 1 makes it `analysis`.
 >
-> _Which pile:_
+> _Which pile:_ a
+
+**3.**
+
+> _The post:_ Carbon plates aren't the whole story. My times dropped 2% in the shoes and another 2% the following year in the same pair, when the only thing that changed was going from 35 to 50 miles a week.
+>
+> _Staff said / I said:_ analysis / reaction
+>
+> _My call, and why:_ Staff is right. The two 2% drops with mileage as the only change are the argument, and an estimate from the writer's own running is still a checkable fact.
+>
+> _Which pile:_ a
+
+**4.**
+
+> _The post:_ Ran the same loop in 4C and in 24C within a fortnight, same effort by heart rate. 90 seconds slower in the heat over six miles. People keep saying heat costs you 'a bit' and it's more than that.
+>
+> _Staff said / I said:_ analysis / hot_take
+>
+> _My call, and why:_ Staff is right. The same loop at 4C and 24C with a 90-second gap is what the last sentence rests on, and again I labelled from the conclusion instead of the evidence.
+>
+> _Which pile:_ a
+
+**5.**
+
+> _The post:_ Three of us ran the same session on the same day, different shoes, within 10 seconds of each other over 5 miles. I'm not saying shoes do nothing, but whatever they do was smaller than the noise between three people.
+>
+> _Staff said / I said:_ analysis / reaction
+>
+> _My call, and why:_ Staff is right. The post is written right after a run, but the three-runner, 10-second comparison is what the conclusion rests on, and rule 3 says recency does not outrank evidence.
+>
+> _Which pile:_ a
+
+**6.**
+
+> _The post:_ Track sessions are wasted on anyone running slower than 8 minute miles. You'd get more out of just running more.
+>
+> _Staff said / I said:_ hot_take / reaction
+>
+> _My call, and why:_ I read it as a reply to a slower runner earlier in the thread, which makes it a response to something that just happened. The definitions don't say whether a reply to another post counts as `reaction` when it's phrased as a general rule.
+>
+> _Which pile:_ c
+
+**7.**
+
+> _The post:_ Every injury thread on this forum is the same injury and the same three replies.
+>
+> _Staff said / I said:_ hot_take / reaction
+>
+> _My call, and why:_ I'm right, or at least defensible. It is a fed-up response to the thread the writer just read, and it gives no evidence, so it's about the writer's experience rather than a claim they're trying to argue; staff themselves flagged it as borderline.
+>
+> _Which pile:_ c
 
 **What the pattern in my disagreements tells me:**
+
+Five of my seven disagreements are the same mistake: staff said analysis and I said reaction or hot_take, because I labelled from the post's final opinion and skipped the numbers that carried it (rules 1 and 3). That's pile (a), so it's a consistency problem in how I apply a rule, not a gap in the rules. It suggests my own labels may be judged by tone rather than content too, especially on the home_cooked / chatter boundary, where all 6 of my corrections were.
 
 ---
 
