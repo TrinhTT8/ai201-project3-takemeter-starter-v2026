@@ -239,28 +239,26 @@ My prediction was slightly off but it was correct that the trained model didn't 
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 | --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| 1. Overall accuracy | ≥ 0.70 | 0.667 | 0.667 | 0.667 | Missed |
+| 2. Per-label F1 | `home_cooked`, `chatter` ≥ 0.65; `bought_prepared` ≥ 0.55 | hc 0.80, ch 0.00, bp 0.00 | hc 0.80, ch 0.00, bp 0.00 | hc 0.80, ch 0.00, bp 0.00 | Missed |
+| 3. `bought_prepared` predicted as `home_cooked` | < 20% | 100% (4/4) | 100% (4/4) | 100% (4/4) | Missed |
+| 4. Agreement with staff labels | ≥ 24/30 | — | — | — | Pending |
+| 5. Accuracy when confidence ≥ 0.80 | ≥ 85% | not reported | not reported | not reported | Can't measure |
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |     |     |     |
-| ---------------- | --- | --- | --- |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
+| true \ predicted | home_cooked | bought_prepared | chatter |
+|---|---|---|---|
+| **home_cooked** | 24 | 0 | 0 |
+| **bought_prepared** | 4 | 0 | 0 |
+| **chatter** | 8 | 0 | 0 |
 
 **My biggest off-diagonal number, and what it means:**
 
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
-     other way" is a direction, not just an error rate. -->
+My biggest off-diagonal number is 8: all 8 real chatter posts were predicted as home_cooked, and 0 went the other way. But this isn't the model confusing two labels. It never predicted chatter or bought_prepared at all, and all 4 bought_prepared posts also went to home_cooked. 
 
 ---
 
