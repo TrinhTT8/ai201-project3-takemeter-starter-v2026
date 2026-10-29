@@ -79,6 +79,10 @@ whether you hit them:
 
 **Why this target:** A post like "Subway night" should be an easy, confident call. If confident predictions aren't more accurate than overall accuracy, the confidence score means nothing.
 
+> **Revised in unit 6:** The most-confident third of predictions is correct at least 85% of the time.
+>
+> **Why revised:** The notebook only reports accuracy by confidence thirds, not above a 0.80 cutoff, and almost no predictions reached 0.80 (mean confidence when right was 0.67–0.74), so the original couldn't be measured.
+
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────

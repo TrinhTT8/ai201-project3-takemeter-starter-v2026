@@ -239,11 +239,11 @@ My prediction was slightly off but it was correct that the trained model didn't 
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 | --------- | ------ | ------- | ------ | --------- | ------- |
-| 1. Overall accuracy | ≥ 0.70 | 0.667 | 0.667 | 0.667 | Missed |
-| 2. Per-label F1 | `home_cooked`, `chatter` ≥ 0.65; `bought_prepared` ≥ 0.55 | hc 0.80, ch 0.00, bp 0.00 | hc 0.80, ch 0.00, bp 0.00 | hc 0.80, ch 0.00, bp 0.00 | Missed |
-| 3. `bought_prepared` predicted as `home_cooked` | < 20% | 100% (4/4) | 100% (4/4) | 100% (4/4) | Missed |
-| 4. Agreement with staff labels | ≥ 24/30 | — | — | — | Pending |
-| 5. Accuracy when confidence ≥ 0.80 | ≥ 85% | not reported | not reported | not reported | Can't measure |
+| 1. Overall accuracy | ≥ 0.70 | 0.667 | 0.667 | 0.667 | MISSED |
+| 2. Per-label F1 | `home_cooked`, `chatter` ≥ 0.65; `bought_prepared` ≥ 0.55 | hc 0.80, ch 0.00, bp 0.00 | hc 0.80, ch 0.00, bp 0.00 | hc 0.80, ch 0.00, bp 0.00 | MISSED |
+| 3. `bought_prepared` predicted as `home_cooked` | < 20% | 100% (4/4) | 100% (4/4) | 100% (4/4) | MISSED |
+| 4. Agreement with staff labels | ≥ 24/30 | 23/30 | 23/30 | 23/30 | MISSED |
+| 5. Most-confident third is correct (revised, see `criteria.md`) | ≥ 0.85 | 1.000 | 0.917 | 0.833 | MISSED |
 
 ### Confusion matrix
 
@@ -269,13 +269,23 @@ My biggest off-diagonal number is 8: all 8 real chatter posts were predicted as 
 
 | #   | Criterion | Target | Verdict | How I decided |
 | --- | --------- | ------ | ------- | ------------- |
-| 1   |           |        |         |               |
-| 2   |           |        |         |               |
-| 3   |           |        |         |               |
-| 4   |           |        |         |               |
-| 5   |           |        |         |               |
+| 1   | Overall accuracy | ≥ 0.70 | MISSED | 0.667 on all three seeds, below 0.70 every time. |
+| 2   | Per-label F1 | `home_cooked`, `chatter` ≥ 0.65; `bought_prepared` ≥ 0.55 | MISSED | `chatter` and `bought_prepared` were 0.00 on all three seeds. |
+| 3   | `bought_prepared` predicted as `home_cooked` | < 20% | MISSED | 4 of 4 (100%) on all three seeds. |
+| 4   | Agreement with staff labels | ≥ 24/30 | MISSED | `agreement.py` gave 23/30; this doesn't depend on the seed. |
+| 5   | Most-confident third is correct (revised) | ≥ 0.85 | MISSED | 1.000 and 0.917 passed, but seed 2024 was 0.833. |
 
 **Diagnoses**
+
+**1. Overall accuracy — too few examples for two labels.** The model predicted `home_cooked` for all 36 test posts on every seed, and 24 of 36 are `home_cooked`, so 0.667 is just the score for always guessing the biggest label. I know it's a data problem and not an impossible task because the zero-shot baseline, with no training at all, still caught some `chatter` and `bought_prepared` posts (F1 0.31 and 0.25).
+
+**2. Per-label F1 — too few examples, plus a boundary I applied inconsistently.** `bought_prepared` had only 20 training posts and `chatter` 34, against 112 for `home_cooked`, so the model never learned to predict either. My agreement report also shows I label by how a post sounds rather than what it contains (5 of my 7 disagreements), and all 6 corrections I made to my own labels were on `home_cooked` / `chatter`, so my `chatter` labels are probably noisy too.
+
+**3. `bought_prepared` → `home_cooked` — too few examples, on a genuinely hard pair.** With 20 training posts, the model never predicted `bought_prepared` once, so all 4 test posts went to `home_cooked`. This is also my hardest boundary by design, since store-bought and frozen food count as `home_cooked`, but the model never got far enough to show whether that rule was learnable; the imbalance hides it.
+
+**4. Agreement with staff — a labelling consistency problem.** All 5 of my pile (a) disagreements are the same mistake: I labelled from the post's final opinion and skipped the numbers that supported it. That is a problem with how I apply a written rule, not with the model, and it's direct evidence that my own 238 labels may not be fully consistent.
+
+**5. Confidence — the confidence only measures "how `home_cooked` does this look".** Since every prediction is `home_cooked`, the most-confident third is just the posts that look most like `home_cooked`, and on seed 2024 two of those 12 were actually `chatter` or `bought_prepared`. That fits the overlap in diagnosis 2, where many `chatter` posts still talk about food, so confidence can't mean much until the model predicts more than one label.
 
 <!-- For each miss: the cause, and how you know. The four common causes are:
      too few examples for a label, a boundary you applied inconsistently, a
