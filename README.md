@@ -184,7 +184,7 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 
 **Moment 1**
 
-- _What I asked for:_ I asked Claude to collect 238 posts from the forum, and pre-label 218 of them for me.
+- _What I asked for:_ I asked Claude to collect 238 posts from the forum, and pre-label all 238 of them for me.
 - _What came back:_ It populated the rest of `labels.csv` and specified which posts were labeled by it and whether I had rechecked the labels or not.
 - _What I changed:_ I read through the 238 posts and fixed 6 of the labels that it got wrong.
 
@@ -194,12 +194,19 @@ If the post mentions that the user eats/uses specific brand of ingredients, froz
 - _What came back:_ Based on the analysis, my last two criteria were weak and overlapped with each other. Claude suggested ways to enhance them, and it also gave me ideas for a new criterion.
 - _What I changed:_ I made criterion 4 a concrete number: at least 24 of the 30 staff posts (80%), allowing about one miss in five. I replaced criterion 5 with a confidence check: predictions at 0.80 confidence or higher must be right at least 85% of the time.
 
-**Pre-labelling disclosure:** 218 posts in `labels.csv` were pre-labelled by Claude. I read every one and corrected the ones I disagreed with (6 changed).
+**Pre-labelling disclosure:** The first 238 posts in `labels.csv` were pre-labelled by Claude. I read every one and corrected the ones I disagreed with (6 changed). The 44 `bought_prepared` posts added later were collected by Claude but labelled by me.
 
-<!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
+**Moment 3**
 
-     Don't fill these in during unit 5.
-     ═══════════════════════════════════════════════════════════════════ -->
+- _What I asked for:_ I asked Claude to collect more `bought_prepared` posts from later pages of the thread.
+- _What came back:_ 44 candidate posts from pages 168–200, picked by a keyword search for restaurant names, takeout and drive-thru, with a few borderline ones flagged.
+- _What I changed:_ I labelled every one myself with my decision rule before adding them to `labels.csv`, and noted that keyword picking favours the obvious cases.
+
+**Moment 4**
+
+- _What I asked for:_ I asked Claude to help me diagnose why the model kept missing my criteria.
+- _What came back:_ It found the model predicts `home_cooked` for every post, pointed at too few `bought_prepared` examples, and later caught that my first "after" run hadn't reloaded the new data.
+- _What I changed:_ I picked adding data as my improvement and reran from a restarted kernel. When the model still guessed `home_cooked` every time, I changed my diagnosis to point at training instead.
 
 ---
 
@@ -435,10 +442,28 @@ So too few examples wasn't the whole story. `bought_prepared` now has more train
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+All five criteria are still missed, mainly because `home_cooked` is still 57% of the data and the model never predicts anything else.
+
+| # | Criterion | What I'd do next | Why I stopped |
+| --- | --------- | ---------------- | ------------- |
+| 1 | Overall accuracy ≥ 0.70 | Train for more epochs, or weight the smaller labels more. | I used my one improvement on adding data. |
+| 2 | Per-label F1 | Add more `chatter` posts and relabel the `home_cooked` / `chatter` boundary. | More data didn't help last time, so training comes first. |
+| 3 | `bought_prepared` → `home_cooked` < 20% | Same training change as #1. | Same as #1. |
+| 4 | Staff agreement ≥ 24/30 | Relabel by checking for a supporting fact before reading the conclusion. | I didn't want to relabel after seeing the answer key. |
+| 5 | Most-confident third ≥ 0.85 | Nothing yet; it depends on the model predicting more than one label. | Depends on #1–3. |
+
+The dataset is still broken in three ways:
+
+- **Lopsided:** 161 of 282 posts are `home_cooked`.
+- **Noisy boundary:** all 6 of my corrections were `home_cooked` / `chatter`, and I tend to label by tone.
+- **Picked by keyword:** the 44 new `bought_prepared` posts are the obvious cases, not the hard ones.
+
 **The gap between what I meant my labels to capture and what the model
 learned:**
 
 <!-- Two sentences. Your confusion matrix is the evidence. -->
+
+I meant my labels to capture who made the meal, but the model only learned "this is a food post" and calls everything `home_cooked`. The confusion matrix shows it: every post lands in the `home_cooked` column.
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
